@@ -1,9 +1,16 @@
+console.log('Serviceworker is Ok!');
+
 addEventListener('install', installEvent => {
   installEvent.waitUntil(
     caches.open('Johnny')
     .then( JohnnyCache => {
       JohnnyCache.addAll([
-       '/offline.html'
+       '/offline.html',
+       'https://habrastorage.org/getpro/habr/post_images/5be/92e/7eb/5be92e7ebeb7ee4a194b45645538320f.jpg',
+       'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+       '/manifest.json',
+       '/images/favicon-16x16.png',
+       '/images/favicon-32x32.png'
       ]); // конец addAll
     }) // конец open.then
   ); // конец waitUntil
