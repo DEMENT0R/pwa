@@ -52,7 +52,7 @@
 	</head>
 	<body>
 		<div class="container mx-auto">
-			<img src="https://habrastorage.org/getpro/habr/post_images/5be/92e/7eb/5be92e7ebeb7ee4a194b45645538320f.jpg" title="PWA" align="centre">
+			<img src="https://habrastorage.org/getpro/habr/post_images/5be/92e/7eb/5be92e7ebeb7ee4a194b45645538320f.jpg" title="PWA" class="mw-100 mx-auto">
 			<h1>PWA Test</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
@@ -81,8 +81,8 @@
 			  console.log('a2hs installed');
 			});
 		</script>
-		<!-- .A2HS -->
-		<style type="text/css">
+		
+		<script type="text/javascript">
 			if (window.matchMedia('(display-mode: standalone)').matches) {
 			  console.log('display-mode is standalone');
 			}
@@ -90,6 +90,13 @@
 			if (window.navigator.standalone === true) {
 			  console.log('display-mode is standalone');
 			}
-		</style>
+		</script>
+		
+		<script type="text/javascript">
+			if (navigator.serviceWorker) {
+			  navigator.serviceWorker.register('/serviceworker.js');
+			}
+		</script>
+		<!-- .A2HS -->
 	</body>
 </html>
