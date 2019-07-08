@@ -1,5 +1,3 @@
-console.log('Serviceworker is Ok!');
-
 addEventListener('install', installEvent => {
   installEvent.waitUntil(
     caches.open('Johnny')
