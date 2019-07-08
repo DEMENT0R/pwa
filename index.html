@@ -2,7 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Document</title>
+		<title>PWA Test</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 		<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
@@ -48,9 +51,11 @@
 
 	</head>
 	<body>
-		<h1>test</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+		<div class="container mx-auto">
+			<img src="https://habrastorage.org/getpro/habr/post_images/5be/92e/7eb/5be92e7ebeb7ee4a194b45645538320f.jpg" title="PWA" align="centre">
+			<h1>PWA Test</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
 
 		<!-- A2HS -->
 		<script type="text/javascript">
@@ -77,5 +82,14 @@
 			});
 		</script>
 		<!-- .A2HS -->
+		<style type="text/css">
+			if (window.matchMedia('(display-mode: standalone)').matches) {
+			  console.log('display-mode is standalone');
+			}
+
+			if (window.navigator.standalone === true) {
+			  console.log('display-mode is standalone');
+			}
+		</style>
 	</body>
 </html>
