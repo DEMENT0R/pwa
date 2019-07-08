@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<h1>test</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+
+		<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
+
+
+	    <link rel="manifest" href="/manifest.json">     
+	    <meta name="msapplication-TileColor" content="#AAA">
+	    <meta name="msapplication-TileImage" content="/images/site_icon.png">
+	    <meta name="theme-color" content="#777"> 
+
+	    <meta name="theme-color" content="#F6F6F6" />
+	    <meta name="application-name" content="My Hobbykeeper" />
+	    <meta name="mobile-web-app-capable" content="yes">
+	    
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-title" content="My Hobbykeeper" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <link rel="apple-touch-startup-image" href="/wp-content/uploads/hk_logo3_inverted_dark.png">
+	    <link name="apple-touch-startup-image" href="/wp-content/uploads/hk_logo3_inverted_dark.png">
+
+	</head>
+	<body>
+		<h1>test</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+		<!-- A2HS -->
+		<script type="text/javascript">
+			btnAdd.addEventListener('click', (e) => {
+			  // hide our user interface that shows our A2HS button
+			  btnAdd.style.display = 'none';
+			  // Show the prompt
+			  deferredPrompt.prompt();
+			  // Wait for the user to respond to the prompt
+			  deferredPrompt.userChoice
+			    .then((choiceResult) => {
+			      if (choiceResult.outcome === 'accepted') {
+			        console.log('User accepted the A2HS prompt');
+			      } else {
+			        console.log('User dismissed the A2HS prompt');
+			      }
+			      deferredPrompt = null;
+			    });
+			});
+		</script>
+		<script type="text/javascript">
+			window.addEventListener('appinstalled', (evt) => {
+			  console.log('a2hs installed');
+			});
+		</script>
+		<!-- .A2HS -->
+	</body>
 </html>
