@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Camera — getUserMedia API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  
+      <style type="text/css">
+		:root { font-size: 16px; }
+		* { font-family: monospace; margin: 0; padding: 0; }
+
+		body {
+		  
+		  text-align: center;
+		  padding: 2.5rem 2rem;
+		}
+		h1 {
+		  font-size: 2.5rem;
+		  margin-bottom: 2.5rem;
+		}
+
+		video, canvas {
+		  display: block;
+		  border: 2px solid #000;
+		  border-radius: 4px;
+		  padding: 4px;
+		  background: #fff;
+		  margin: 0 auto;
+		}
+
+		button {
+		  display: inline-block;
+		  cursor: pointer;
+		  padding: 1rem 1.5rem;
+		  margin: 1rem;
+		  color: #000;
+		  font-size: 1.2rem;
+		  font-weight: bold;
+		  border: 2px solid #000;
+		  border-radius: 6rem;
+		  background: #fff;
+		}
+		button svg {
+		  width: 24px;
+		  height: 24px;
+		  margin: 0 8px -6px 0;
+		}
+		button:hover {
+		  background: #ddd;
+		}
+      </style>
+
+  
+</head>
+
+<body>
+
+	  <h1>Camera</h1>
+
+	<video id="video" autoplay></video>
+
+	<button id="snap">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h4.05l1.83-2h4.24l1.83 2H20v12zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>Snap Photo
+	</button>
+
+	<canvas id="canvas" width="300" height="220"></canvas>
+
+	<a id="download" download="my-photo.png"><button type="button" onClick="download()">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zm-5.55-8h-2.9v3H8l4 4 4-4h-2.55z"/></svg>Download
+	  </button></a>
+  
+  
+
+    <script type="text/javascript">
+		var video = document.getElementById('video');
+
+		// Get access to the camera!
+		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		    // Not adding `{ audio: true }` since we only want video
+		    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+		   //video.src = window.URL.createObjectURL(stream);
+		        video.srcObject = stream;
+		        video.play();
+		    });
+		}
+
+		// Elements for taking the snapshot
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		var video = document.getElementById('video');
+
+		// Trigger photo take
+		document.getElementById("snap").addEventListener("click", function() {
+			context.drawImage(video, 0, 0, 640, 480);
+		});
+
+		// Download canvas as image
+		function download(){
+				var download = document.getElementById("download");
+				var image = document.getElementById("canvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
+				download.setAttribute("href", image);
+				//download.setAttribute("download","archive.png");
+			}
+    </script>
+
+
+
+
+</body>
+
+</html>
