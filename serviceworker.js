@@ -4,7 +4,7 @@ addEventListener('install', installEvent => {
     .then( JohnnyCache => {
       JohnnyCache.addAll([
        '/offline.html',
-       'https://habrastorage.org/getpro/habr/post_images/5be/92e/7eb/5be92e7ebeb7ee4a194b45645538320f.jpg',
+       '/images/pwa.jpg',
        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
        '/manifest.json',
        '/images/favicon-16x16.png',
